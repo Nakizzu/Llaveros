@@ -146,6 +146,83 @@
     }
 }
 
+/*** Mobile Banner ***/
+/* Banner específico para móviles */
+.mobile-banner {
+    display: none; /* Oculto por defecto */
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 80px; /* Ajustar según la altura del navbar */
+}
+
+.mobile-banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*** Media Queries para Responsividad ***/
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 575.98px) {
+    .navbar-brand h1 {
+        font-size: 1.5rem;
+    }
+
+    .navbar-nav .nav-item {
+        font-size: 0.9rem;
+    }
+
+    .top-bar {
+        display: none; /* Ocultar la barra superior en móviles */
+    }
+
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .d-none.d-lg-flex {
+        display: none !important; /* Ocultar los íconos en móviles */
+    }
+    
+    /* Mostrar el banner móvil */
+    .mobile-banner {
+        display: block;
+    }
+    
+    /* Ocultar el carousel en móviles */
+    #header-carousel {
+        display: none;
+    }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .navbar-brand h1 {
+        font-size: 1.75rem;
+    }
+
+    .navbar-nav .nav-item {
+        font-size: 1rem;
+    }
+
+    .d-none.d-md-flex {
+        display: none !important;
+    }
+}
+
+/* Pantallas grandes (escritorios) */
+@media (min-width: 992px) {
+    .navbar-nav .nav-item {
+        font-size: 1.1rem;
+    }
+
+    .top-bar {
+        display: flex;
+    }
+
+    .navbar-toggler {
+        display: none; /* Ocultar el botón de menú en pantallas grandes */
+    }
+}
 
 /*** Header ***/
 .carousel-caption {
@@ -179,7 +256,7 @@
         position: relative;
         min-height: 450px;
     }
-    
+
     #header-carousel .carousel-item img {
         position: absolute;
         width: 100%;
@@ -195,6 +272,13 @@
     background-size: cover;
 }
 
+/* ✅ Imagen alternativa para dispositivos con pantallas de 768px o menos */
+ @media (max-width: 768px) {
+    .page-header {
+        background: url(../img/tappztelefono2.jpeg) top center no-repeat;
+        background-size: cover;
+    }
+} 
 .breadcrumb-item+.breadcrumb-item::before {
     color: #999999;
 }
@@ -233,7 +317,6 @@
     left: 0;
     transform: translateX(0);
 }
-
 
 
 /*** About ***/
@@ -381,4 +464,37 @@
 
 .footer .copyright a:hover {
     color: var(--primary);
+}
+/* Añadir al final del archivo CSS original */
+
+/* Control de visibilidad para la imagen del teléfono en la sección About */
+.phone-image-container {
+    margin-top: 2rem;
+}
+
+/* En pantallas grandes (escritorio), ocultar la imagen del teléfono en About */
+@media (min-width: 992px) {
+    .phone-image-container {
+        display: none;
+    }
+}
+
+/* En pantallas medianas (tabletas), decidir si mostrar u ocultar según diseño */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .phone-image-container {
+        display: none; /* Ocultar en tabletas también */
+    }
+}
+
+/* En pantallas pequeñas (móviles), mostrar la imagen */
+@media (max-width: 575.98px) {
+    .phone-image-container {
+        display: block;
+        text-align: center;
+    }
+    
+    .phone-image-container img {
+        max-width: 80%; /* Limitar el tamaño para que no sea demasiado grande */
+        margin: 0 auto;
+    }
 }
